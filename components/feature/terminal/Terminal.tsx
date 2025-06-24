@@ -278,7 +278,7 @@ export default function Terminal() {
         className="relative overflow-hidden h-full"
       >
         <div 
-          className="font-mono bg-black/80 backdrop-blur-sm p-6 rounded-xl w-full h-full flex flex-col shadow-2xl border border-gray-800"
+          className={`font-mono backdrop-blur-sm p-6 rounded-xl w-full h-full flex flex-col shadow-2xl ${resolvedTheme === 'dark' ? 'bg-black/80 border border-gray-800' : 'bg-gray-100/90 border border-gray-300'}`}
           style={{ color: textColor }}
         >
           <div className="flex items-center gap-2 mb-4">
