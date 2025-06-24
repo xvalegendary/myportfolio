@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        bubble: ['"Bubblegum Sans"', 'cursive'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -65,10 +68,20 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        glow: {
+          '0%, 100%': { textShadow: '0 0 8px rgba(255,255,255,0.8)' },
+          '50%': { textShadow: '0 0 16px rgba(255,255,255,1)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        fadeIn: "fadeIn 0.5s ease-in-out",
+        glow: "glow 1.5s ease-in-out infinite",
       },
     },
   },
