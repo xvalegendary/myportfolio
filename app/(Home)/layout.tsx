@@ -6,8 +6,8 @@ import { LocaleProvider } from "@/src/context/LocaleContext";
 import clsx from "clsx";
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Personal website",
+  title: "xvalegendary | portfolio",
+  description: "xvalegendary portfolio",
 };
 
 export default function RootLayout({
