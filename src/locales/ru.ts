@@ -11,8 +11,12 @@ export default {
   docsTitle: "Документация",
   viewOnGitHub: "Смотреть на GitHub",
   terminalWelcome: "Добро пожаловать в терминал портфолио!",
-  terminalOptions: "1. Обо мне\n2. Проекты\n3. Соцсети\n4. Сменить тему",
+  terminalOptions:
+    "1. Обо мне\n2. Проекты\n3. Соцсети\n4. Сменить тему\n5. Сменить цвет текста\n6. Сменить язык\n7. Очистить экран",
   loadingRepos: "Загрузка репозиториев...",
   themeToggled: "Тема переключена",
+  enterColor: "Введите цвет (например pink):",
+  enterLanguage: "Введите язык (en/ru):",
+  commandCompleted: "[+] Команда выполнена",
   unknownCommand: "Неизвестная команда",
 } as const;
