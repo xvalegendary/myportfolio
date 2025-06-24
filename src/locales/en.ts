@@ -9,5 +9,10 @@ export default {
   aboutDescription: "My name is XY, I'm 15 and I build websites. Here you can find links to my socials.",
   projectsTitle: "Projects",
   docsTitle: "Docs",
-  viewOnGitHub: "View on GitHub"
+  viewOnGitHub: "View on GitHub",
+  terminalWelcome: "Welcome to my terminal portfolio!",
+  terminalOptions: "1. About me\n2. Projects\n3. Socials\n4. Toggle theme",
+  loadingRepos: "Loading repositories...",
+  themeToggled: "Theme toggled",
+  unknownCommand: "Unknown command",
 } as const;
