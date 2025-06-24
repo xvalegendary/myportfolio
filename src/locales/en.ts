@@ -6,17 +6,18 @@ export default {
   homeTitle: "Shadcn/ui",
   homeSubtitle: "with Shadcn/ui, Next Themes, TypeScript, ESLint.",
   aboutGreeting: "Hi!",
-  aboutDescription: "My name is XY, I'm 15 and I build websites. Here you can find links to my socials.",
+  aboutDescription: "xvalegendary, 15 y.o developer, and I do web development, here you will find links to my social networks and projects.",
   projectsTitle: "Projects",
   docsTitle: "Docs",
   viewOnGitHub: "View on GitHub",
-  terminalWelcome: "Welcome to my terminal portfolio!",
+  terminalWelcome: "xvalegendary@HOME-PC",
   terminalOptions:
-    "1. About me\n2. Projects\n3. Socials\n4. Toggle theme\n5. Change text color\n6. Change language\n7. Clear screen",
+    "> 1. about me\n> 2. projects (repositories) \n> 3. socials\n> 4. toggle theme\n> 5. change text color\n> 6. change language\n> 7. clear screen\n> 8. my stack",
   loadingRepos: "Loading repositories...",
   themeToggled: "Theme toggled",
   enterColor: "Enter a color (e.g. pink):",
   enterLanguage: "Enter language (en/ru):",
-  commandCompleted: "[+] Command completed",
+  commandCompleted: "[~] hook commandCompleted",
   unknownCommand: "Unknown command",
+  clearScreen: "Clear terminal"
 } as const;

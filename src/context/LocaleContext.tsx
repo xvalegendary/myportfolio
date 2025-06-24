@@ -18,8 +18,9 @@ const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
 
 export const LocaleProvider = ({ children }: { children: ReactNode }) => {
   const [locale, setLocale] = useState<Locale>("ru");
-
   const t = (key: keyof typeof en) => translations[locale][key] || translations.en[key];
+
+  console.log('locale is', locale)
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale, t }}>
@@ -27,6 +28,7 @@ export const LocaleProvider = ({ children }: { children: ReactNode }) => {
     </LocaleContext.Provider>
   );
 };
+
 
 export const useLocale = () => {
   const context = useContext(LocaleContext);
