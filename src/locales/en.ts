@@ -11,8 +11,12 @@ export default {
   docsTitle: "Docs",
   viewOnGitHub: "View on GitHub",
   terminalWelcome: "Welcome to my terminal portfolio!",
-  terminalOptions: "1. About me\n2. Projects\n3. Socials\n4. Toggle theme",
+  terminalOptions:
+    "1. About me\n2. Projects\n3. Socials\n4. Toggle theme\n5. Change text color\n6. Change language\n7. Clear screen",
   loadingRepos: "Loading repositories...",
   themeToggled: "Theme toggled",
+  enterColor: "Enter a color (e.g. pink):",
+  enterLanguage: "Enter language (en/ru):",
+  commandCompleted: "[+] Command completed",
   unknownCommand: "Unknown command",
 } as const;
