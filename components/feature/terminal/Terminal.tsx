@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { useTheme } from "next-themes";
-import { useLocale } from "@/src/context/LocaleContext";
+import { useLocale, Locale } from "@/src/context/LocaleContext";
 
 interface Repo {
   id: number;
@@ -13,8 +13,11 @@ interface Repo {
 export default function Terminal() {
   const [input, setInput] = useState("");
   const [lines, setLines] = useState<string[]>([]);
+  const [textColor, setTextColor] = useState("green");
+  const [awaitColor, setAwaitColor] = useState(false);
+  const [awaitLang, setAwaitLang] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
-  const { t } = useLocale();
+  const { t, setLocale } = useLocale();
 
   const print = (text: string) => setLines((prev) => [...prev, text]);
 
@@ -32,6 +35,24 @@ export default function Terminal() {
   };
 
   const handleCommand = async (cmd: string) => {
+    if (awaitColor) {
+      setTextColor(cmd);
+      setAwaitColor(false);
+      print(t("commandCompleted"));
+      return;
+    }
+
+    if (awaitLang) {
+      if (cmd === "en" || cmd === "ru") {
+        setLocale(cmd as Locale);
+        print(t("commandCompleted"));
+      } else {
+        toast.error(t("unknownCommand"));
+      }
+      setAwaitLang(false);
+      return;
+    }
+
     switch (cmd.trim()) {
       case "1":
         print(t("aboutDescription"));
@@ -48,9 +69,23 @@ export default function Terminal() {
         setTheme(resolvedTheme === "dark" ? "light" : "dark");
         toast.success(t("themeToggled"));
         break;
+      case "5":
+        print(t("enterColor"));
+        setAwaitColor(true);
+        return;
+      case "6":
+        print(t("enterLanguage"));
+        setAwaitLang(true);
+        return;
+      case "7":
+        setLines([]);
+        break;
       default:
         toast.error(t("unknownCommand"));
+        return;
     }
+
+    print(t("commandCompleted"));
   };
 
   const onKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -63,7 +98,10 @@ export default function Terminal() {
   };
 
   return (
-    <div className="font-mono bg-black text-green-500 p-6 rounded-lg w-full max-w-2xl shadow-lg">
+    <div
+      className="font-mono bg-black p-6 rounded-lg w-full max-w-2xl shadow-lg"
+      style={{ color: textColor }}
+    >
       <pre className="whitespace-pre-wrap">
         {t("terminalWelcome")}
         {"\n"}
@@ -75,7 +113,8 @@ export default function Terminal() {
       <div className="flex items-center">
         <span className="mr-2">$</span>
         <input
-          className="flex-1 bg-black text-green-500 outline-none"
+          className="flex-1 bg-black outline-none"
+          style={{ color: textColor }}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={onKeyDown}
