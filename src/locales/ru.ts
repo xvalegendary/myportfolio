@@ -9,5 +9,10 @@ export default {
   aboutDescription: "Меня зовут XY, мне 15 лет и я занимаюсь веб-разработкой. Здесь вы найдёте ссылки на мои соцсети.",
   projectsTitle: "Проекты",
   docsTitle: "Документация",
-  viewOnGitHub: "Смотреть на GitHub"
+  viewOnGitHub: "Смотреть на GitHub",
+  terminalWelcome: "Добро пожаловать в терминал портфолио!",
+  terminalOptions: "1. Обо мне\n2. Проекты\n3. Соцсети\n4. Сменить тему",
+  loadingRepos: "Загрузка репозиториев...",
+  themeToggled: "Тема переключена",
+  unknownCommand: "Неизвестная команда",
 } as const;
