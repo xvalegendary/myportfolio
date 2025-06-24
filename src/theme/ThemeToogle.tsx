@@ -12,9 +12,12 @@ import { Moon, Sun } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export const ThemeToogle = () => {
   const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -22,7 +25,7 @@ export const ThemeToogle = () => {
           variant={"outline"}
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
         >
-          {resolvedTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+          {mounted && (resolvedTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />)}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
